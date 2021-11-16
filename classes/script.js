@@ -7,7 +7,7 @@ class Book {
     }
 
     read () {
-        return 'Estou lendo ${this.title}';
+        return `Estou lendo ${this.title}`;
     }
 }
 
