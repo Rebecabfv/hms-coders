@@ -3,7 +3,6 @@
 
 // Importar os dados 
 const livros = require('./database.js');
-console.log(livros);
 
 // Pegar o input do usuário
 const readline = require('readline-sync');
@@ -15,7 +14,7 @@ if (entradaInicial.toLocaleUpperCase() === 'S'){
     console.log('Essas são as categorias disponíveis:');
     console.log('Produtividade', '/ História brasileira', '/ Américas', '/ Tecnologia', '/ Estilo de vida');
 
-    const entradaCategoria = readline.question('Qual categoria você escolhe?');
+    const entradaCategoria = readline.question('Qual categoria voce escolhe?');
 
     //Retornando de acordo com a categoria escolhida:
     const retorno = livros.filter(livro => livro.categoria === entradaCategoria);

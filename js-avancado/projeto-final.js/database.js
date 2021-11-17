@@ -3,7 +3,7 @@ const livros = [
         id: 1,
         nome: "Digital Minimalism",
         autor: "Cal Newport",
-        categoria: "Produtividade ",
+        categoria: "Produtividade",
         paginas: 254,
         recomenda: false,
         leu: false  
