@@ -7,8 +7,6 @@ const livros = require('./database.js');
 // Pegar o input do usuário
 const readline = require('readline-sync');
 
-const entradaInicial = readline.question('Deseja buscar um livro? S/N');
-
 function escolheCategoria(){
     console.log('Essas são as categorias disponíveis:');
     console.log('Produtividade', '/ Historia brasileira', '/ Americas', '/ Tecnologia', '/ Estilo de vida');
@@ -27,17 +25,23 @@ function mostraCategoria(){
     console.table(livrosOrdenados);
 }
 
+const entradaInicial = readline.question('Deseja buscar um livro? S/N');
+
 // Se for sim, mostra as categorias disponíveis, pergunta qual categoria ela escolhe
 if (entradaInicial.toLocaleUpperCase() === 'S'){
     escolheCategoria();
 
     // Peguntando se deseja fazer outra buscar
-    const outraBusca = readline.question('Deseja realizar outra buscar? S/N');
-    if (outraBusca.toLocaleUpperCase() === 'S'){
-        escolheCategoria(); 
-    } else {
-        mostraCategoria();
-    }
+    var outraBusca;
+    do {
+        outraBusca = readline.question('Deseja realizar outra buscar? S/N');
+        if (outraBusca.toLocaleUpperCase() === 'S'){
+            escolheCategoria(); 
+        } else {
+            mostraCategoria();
+        }  
+    } while (outraBusca.toLocaleUpperCase() === 'S')
+    
     
 // Se for não, mostra todos os livros em ordem crescente pela quantidade de páginas
 } else {
