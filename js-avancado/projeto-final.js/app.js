@@ -20,20 +20,28 @@ function escolheCategoria(){
     console.table(retorno);
 }
 
+function mostraCategoria(){
+    //Ordenar os livros de acordo com o número de páginas
+    const livrosOrdenados = livros.sort((a,b) => a.paginas - b.paginas);
+    console.log('Esses são todos os livros disponíveis:');
+    console.table(livrosOrdenados);
+}
+
 // Se for sim, mostra as categorias disponíveis, pergunta qual categoria ela escolhe
 if (entradaInicial.toLocaleUpperCase() === 'S'){
     escolheCategoria();
 
     // Peguntando se deseja fazer outra buscar
     const outraBusca = readline.question('Deseja realizar outra buscar? S/N');
-    escolheCategoria(); 
+    if (outraBusca.toLocaleUpperCase() === 'S'){
+        escolheCategoria(); 
+    } else {
+        mostraCategoria();
+    }
     
 // Se for não, mostra todos os livros em ordem crescente pela quantidade de páginas
 } else {
-    //Ordenar os livros de acordo com o número de páginas
-    const livrosOrdenados = livros.sort((a,b) => a.paginas - b.paginas);
-    console.log('Esses são todos os livros disponíveis:');
-    console.table(livrosOrdenados);
+    mostraCategoria();
 }
 
 
