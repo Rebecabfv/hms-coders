@@ -16,6 +16,18 @@ cursos.
 ● deletarCurso: recebe o id por parâmetro e remove o curso selecionado da lista.
 ● listaCursos: imprime todos os cursos.*/
 
+function criarCurso(){
+    const id = readline.question("Digite o id do curso:");
+    const titulo = readline.question("Digite o titulo do curso:");
+    const descricao = readline.question("Digite o descricao do curso:");
+    const imagem = readline.question("Digite a url da imagem do curso:");
+    const nome_professor = readline.question("Digite o nome do professor do curso:");
+    const lista_aulas = readline.question("Digite o link para as aulas do curso:");
+    cursos.push({id, titulo, descricao, imagem, nome_professor, lista_aulas});
+}
+
+criarCurso();
+
 function exibirCurso(){
     console.log('Essas são os cursos disponíveis:');
     // Pegando cada titulo dos objetos
