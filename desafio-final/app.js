@@ -26,17 +26,12 @@ function criarCurso(){
     cursos.push({id, titulo, descricao, imagem, nome_professor, lista_aulas});
 }
 
-criarCurso();
-
 function exibirCurso(){
-    console.log('Essas são os cursos disponíveis:');
-    // Pegando cada titulo dos objetos
-    cursos.map(curso =>console.log(curso.titulo));
 
-    const entradaCurso = readline.question('Qual curso voce escolhe?');
+    const entradaId = parseInt(readline.question("Digite o id do curso voce deseja:"));
 
-    //Retornando de acordo com o curso escolhida:
-    const retorno = cursos.filter(curso => curso.titulo === entradaCurso);
+    //Retornando de acordo com o id do curso escolhido:
+    const retorno = cursos.filter(curso => curso.id === entradaId);
     console.table(retorno);
 }
 
@@ -45,5 +40,6 @@ function listaCursos (){
     console.table(cursos);
 }
 
+//criarCurso();
 exibirCurso ();
 listaCursos();
