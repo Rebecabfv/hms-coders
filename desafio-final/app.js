@@ -17,7 +17,7 @@ cursos.
 ● listaCursos: imprime todos os cursos.*/
 
 function criarCurso(){
-    const id = readline.question("Digite o id do curso:");
+    const id = parseInt(readline.question("Digite o id do curso:"));
     const titulo = readline.question("Digite o titulo do curso:");
     const descricao = readline.question("Digite o descricao do curso:");
     const imagem = readline.question("Digite a url da imagem do curso:");
@@ -35,11 +35,28 @@ function exibirCurso(){
     console.table(retorno);
 }
 
+function deletarCurso (){
+    // recebe o id por parâmetro e remove o curso selecionado da lista
+    const entradaId = parseInt(readline.question("Digite o id do curso voce deseja deletar:"));
+    
+    // Pegar o index do id recebido 
+    const indexId = parseInt (cursos.findIndex(curso => curso.id === entradaId));
+    
+    // Deletar todos os dados de acordo com o index do id selecionado
+    cursos.splice(indexId, 1);
+}
+
+
+
 function listaCursos (){
     console.log('Esses são todos os cursos disponíveis:');
     console.table(cursos);
 }
 
-//criarCurso();
-exibirCurso ();
+
+//exibirCurso ();
+criarCurso();
+criarCurso();
+listaCursos();
+deletarCurso();
 listaCursos();
