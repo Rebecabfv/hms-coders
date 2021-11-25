@@ -10,7 +10,7 @@ const cursos = [
 
     {
         id: 2,
-        titulo: "Financeiro",
+        titulo: "Tecnologia",
         descricao: "Financeiro",
         imagem: "recebe uma url",
         nome_professor: "Marcos",

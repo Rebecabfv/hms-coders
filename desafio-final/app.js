@@ -4,18 +4,7 @@ const cursos = require('./database.js');
 // Pegar o input do usuário
 const readline = require('readline-sync');
 
-
-/* Funções que precisa ser criada:
-● criarCurso: recebe todos os dados por parâmetro e adiciona na lista de cursos
-como objeto.
-● exibirCurso: recebe o id de um curso por parâmetro e imprime todos os dados
-do curso selecionado.
-
-● atualizarCurso: recebe todos os dados por parâmetro e atualiza na lista de
-cursos.
-● deletarCurso: recebe o id por parâmetro e remove o curso selecionado da lista.
-● listaCursos: imprime todos os cursos.*/
-
+// criarCurso: recebe todos os dados por parâmetro e adiciona na lista de cursos como objeto.
 function criarCurso(){
     const id = parseInt(readline.question("Digite o id do curso:"));
     const titulo = readline.question("Digite o titulo do curso:");
@@ -26,8 +15,8 @@ function criarCurso(){
     cursos.push({id, titulo, descricao, imagem, nome_professor, lista_aulas});
 }
 
+// exibirCurso: recebe o id de um curso por parâmetro e imprime todos os dados do curso selecionado.
 function exibirCurso(){
-
     const entradaId = parseInt(readline.question("Digite o id do curso voce deseja:"));
 
     //Retornando de acordo com o id do curso escolhido:
@@ -35,6 +24,22 @@ function exibirCurso(){
     console.table(retorno);
 }
 
+// atualizarCurso: recebe todos os dados por parâmetro e atualiza na lista de cursos.
+function atualizarCurso(){
+    // recebe o id por parâmetro e remove o curso selecionado da lista
+    const entradaTitulo = readline.question("Digite o titulo do curso voce deseja atualizar:");
+        
+    // Pegar o index do id recebido 
+    const indexTitulo = parseInt (cursos.findIndex(curso => curso.titulo === entradaTitulo));
+
+    // Deletar todos os dados de acordo com o index do id selecionado
+    cursos[indexTitulo] = {id: 3, titulo: "xx", descricao: "xx", imagem: "xx", nome_professor: "xx", lista_aulas: "xx"};
+}
+
+atualizarCurso();
+listaCursos();
+
+// deletarCurso: recebe o id por parâmetro e remove o curso selecionado da lista.
 function deletarCurso (){
     // recebe o id por parâmetro e remove o curso selecionado da lista
     const entradaId = parseInt(readline.question("Digite o id do curso voce deseja deletar:"));
@@ -47,7 +52,7 @@ function deletarCurso (){
 }
 
 
-
+// listaCursos: imprime todos os cursos.
 function listaCursos (){
     console.log('Esses são todos os cursos disponíveis:');
     console.table(cursos);
@@ -55,8 +60,8 @@ function listaCursos (){
 
 
 //exibirCurso ();
-criarCurso();
+/*criarCurso();
 criarCurso();
 listaCursos();
 deletarCurso();
-listaCursos();
+listaCursos();*/
