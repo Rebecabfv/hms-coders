@@ -15,6 +15,8 @@ function criarCurso(){
     cursos.push({id, titulo, descricao, imagem, nome_professor, lista_aulas});
 }
 
+criarCurso();
+
 // exibirCurso: recebe o id de um curso por parâmetro e imprime todos os dados do curso selecionado.
 function exibirCurso(){
     const entradaId = parseInt(readline.question("Digite o id do curso voce deseja:"));
@@ -32,13 +34,19 @@ function atualizarCurso(){
     // Pegar o index do id recebido 
     const indexTitulo = parseInt (cursos.findIndex(curso => curso.titulo === entradaTitulo));
 
-    // Deletar todos os dados de acordo com o index do id selecionado
-    cursos[indexTitulo] = {id: 3, titulo: "xx", descricao: "xx", imagem: "xx", nome_professor: "xx", lista_aulas: "xx"};
+    // Atualiza todos os dados de acordo com o index do titulo selecionado
+    const id = parseInt(readline.question("Digite o id do curso:"));
+    const titulo = readline.question("Digite o titulo do curso:");
+    const descricao = readline.question("Digite o descricao do curso:");
+    const imagem = readline.question("Digite a url da imagem do curso:");
+    const nome_professor = readline.question("Digite o nome do professor do curso:");
+    const lista_aulas = readline.question("Digite o link para as aulas do curso:");
+    cursos[indexTitulo] = {id, titulo, descricao, imagem, nome_professor, lista_aulas};
 }
 
-atualizarCurso();
-listaCursos();
 
+listaCursos();
+atualizarCurso();
 // deletarCurso: recebe o id por parâmetro e remove o curso selecionado da lista.
 function deletarCurso (){
     // recebe o id por parâmetro e remove o curso selecionado da lista
@@ -58,7 +66,8 @@ function listaCursos (){
     console.table(cursos);
 }
 
-
+deletarCurso();
+listaCursos();
 //exibirCurso ();
 /*criarCurso();
 criarCurso();
