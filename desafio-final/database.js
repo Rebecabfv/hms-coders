@@ -1,17 +1,17 @@
 const cursos = [
     {
         id: 1,
-        titulo: Financeiro,
-        descricao: Financeiro,
+        titulo: "Financeiro",
+        descricao: "Financeiro",
         imagem: "recebe uma url",
         nome_professor: "Marcos",
         lista_aulas: "recebe links das aulas"
     },
 
     {
-        id: 1,
-        titulo: Financeiro,
-        descricao: Financeiro,
+        id: 2,
+        titulo: "Financeiro",
+        descricao: "Financeiro",
         imagem: "recebe uma url",
         nome_professor: "Marcos",
         lista_aulas: "recebe links das aulas"
@@ -19,4 +19,4 @@ const cursos = [
 ]
 
 //Exportar os dados
-module.exports = livros;
+module.exports = cursos;
