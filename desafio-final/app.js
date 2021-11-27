@@ -7,21 +7,40 @@ const readline = require('readline-sync');
 //Menu
 const nome = readline.question("Digite seu nome:");
 console.log(`Ola ${nome}, seja bem-vindo(a) a plataforma de cursos sobre Educacao Financeira.`);
-const menu = parseInt(readline.question(`Selecione o que voce deseja fazer: \n [1] Criar um curso \n [2] Exibir um curso \n [3] Atualizar um curso \n [4] Deletar um curso \n [5] Listar os cursos\n Numero do menu que deseja:`));
 
-if (menu == 1){
-    criarCurso();
-} else if (menu == 2){
-    exibirCurso();
-} else if (menu == 3){
-    atualizarCurso();
-}else if (menu == 4){
-    deletarCurso();
-}else if (menu == 5){
-    listaCursos();
-}else{
-    console.log(`${nome} o valor que voce digitou nao corresponde ao menu, digite um numero valido!`);
+do {
+    var permanece;
+    const menu = parseInt(readline.question(`Selecione o que voce deseja fazer: \n [1] Criar um curso \n [2] Exibir um curso \n [3] Atualizar um curso \n [4] Deletar um curso \n [5] Listar os cursos\n [6] Sair \n Numero do menu que deseja:`));
+
+    if (menu == 1){
+        criarCurso();
+        permanece = readline.question(`Deseja voltar ao menu inicial? S/N`);
+    } else if (menu == 2){
+        exibirCurso();
+        permanece = readline.question(`Deseja voltar ao menu inicial? S/N`);
+    } else if (menu == 3){
+        atualizarCurso();
+        permanece = readline.question(`Deseja voltar ao menu inicial? S/N`);
+    }else if (menu == 4){
+        deletarCurso();
+        permanece = readline.question(`Deseja voltar ao menu inicial? S/N`);
+    }else if (menu == 5){
+        listaCursos();
+        permanece = readline.question(`Deseja voltar ao menu inicial? S/N`);
+    }else if (menu == 6){
+        permanece == 'N';
+    }
+    else{
+        console.log(`${nome} o valor que voce digitou nao corresponde ao menu, digite um numero valido!`);
+        permanece == 'S';
+    }
+} while (permanece == 'S')
+
+if (permanece == 'N'){
+    console.log(`Agradecemos pela sua visita, volte sempre ${nome}`);
 }
+
+
 // criarCurso: recebe todos os dados por parâmetro e adiciona na lista de cursos como objeto.
 function criarCurso(){
     const id = parseInt(readline.question("Digite o id do curso:"));
@@ -81,7 +100,7 @@ function listaCursos (){
 /*criarCurso();
 listaCursos();
 atualizarCurso();
-exibirCurso ();
+exibirCurso();
 deletarCurso();
 listaCursos();*/
 
