@@ -4,6 +4,24 @@ const cursos = require('./database.js');
 // Pegar o input do usuário
 const readline = require('readline-sync');
 
+//Menu
+const nome = readline.question("Digite seu nome:");
+console.log(`Ola ${nome}, seja bem-vindo(a) a plataforma de cursos sobre Educacao Financeira.`);
+const menu = parseInt(readline.question(`Selecione o que voce deseja fazer: \n [1] Criar um curso \n [2] Exibir um curso \n [3] Atualizar um curso \n [4] Deletar um curso \n [5] Listar os cursos\n Numero do menu que deseja:`));
+
+if (menu == 1){
+    criarCurso();
+} else if (menu == 2){
+    exibirCurso();
+} else if (menu == 3){
+    atualizarCurso();
+}else if (menu == 4){
+    deletarCurso();
+}else if (menu == 5){
+    listaCursos();
+}else{
+    console.log(`${nome} o valor que voce digitou nao corresponde ao menu, digite um numero valido!`);
+}
 // criarCurso: recebe todos os dados por parâmetro e adiciona na lista de cursos como objeto.
 function criarCurso(){
     const id = parseInt(readline.question("Digite o id do curso:"));
@@ -14,8 +32,6 @@ function criarCurso(){
     const lista_aulas = readline.question("Digite o link para as aulas do curso:");
     cursos.push({id, titulo, descricao, imagem, nome_professor, lista_aulas});
 }
-
-criarCurso();
 
 // exibirCurso: recebe o id de um curso por parâmetro e imprime todos os dados do curso selecionado.
 function exibirCurso(){
@@ -44,9 +60,6 @@ function atualizarCurso(){
     cursos[indexTitulo] = {id, titulo, descricao, imagem, nome_professor, lista_aulas};
 }
 
-
-listaCursos();
-atualizarCurso();
 // deletarCurso: recebe o id por parâmetro e remove o curso selecionado da lista.
 function deletarCurso (){
     // recebe o id por parâmetro e remove o curso selecionado da lista
@@ -59,18 +72,16 @@ function deletarCurso (){
     cursos.splice(indexId, 1);
 }
 
-
 // listaCursos: imprime todos os cursos.
 function listaCursos (){
     console.log('Esses são todos os cursos disponíveis:');
     console.table(cursos);
 }
 
-deletarCurso();
-listaCursos();
-//exibirCurso ();
 /*criarCurso();
-criarCurso();
 listaCursos();
+atualizarCurso();
+exibirCurso ();
 deletarCurso();
 listaCursos();*/
+
