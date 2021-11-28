@@ -28,6 +28,7 @@ do {
         listaCursos();
         permanece = readline.question(`Deseja voltar ao menu inicial? S/N`);
     }else if (menu == 6){
+        console.log(`Agradecemos pela sua visita, volte sempre ${nome}`);
         permanece == 'N';
     }
     else{
